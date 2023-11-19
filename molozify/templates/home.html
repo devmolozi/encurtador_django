@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+
+    <title>molozi.ly</title>
+</head>
+
+<body>
+    <section class="container">
+
+        <h1>molozi.ly</h1>
+
+        <form action="{% url 'link' %}" method="POST">
+            {% csrf_token %}
+            <table>
+                <br><br>
+                {{ form.link_redirect }}
+                <br>
+                {{ form.link_encurtado }}
+                <br>
+                {% if status == "1" %}
+                <p style="color:red;">Esse link já existe!</p>
+                {% endif %}
+            </table>
+            <br>
+            <input type="submit" value="Encurtar">
+        </form>
+
+        <div>
+            {% if link_pronto %}
+            <p>Seu link é https://molozi.ly/{{ link_pronto }}</p>
+            {% endif %}
+        </div>
+
+    </section>
+</body>
+
+</html>

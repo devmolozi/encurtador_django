@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <title>{{ link_pronto }}</title>
+</head>
+
+<body>
+
+    <section class="container">
+        {% if link_pronto %}
+        <p>Seu link é https://molozi.ly/{{ link_pronto }}</p>
+        {% endif %}
+
+    </section>
+
+</body>
+
+</html>
